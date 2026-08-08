@@ -1,0 +1,64 @@
+```verilog
+//======================================================
+// TESTBENCH FOR 1x2 DEMULTIPLEXER
+//======================================================
+
+`timescale 1ns/1ps
+
+module demux_1x2_tb;
+
+    reg D;
+    reg S;
+
+    wire Y0;
+    wire Y1;
+
+    // Instantiate the 1x2 Demultiplexer
+    demux_1x2 uut (
+        .D(D),
+        .S(S),
+        .Y0(Y0),
+        .Y1(Y1)
+    );
+
+    initial begin
+
+        $display("================================");
+        $display("       1x2 DEMUX TEST");
+        $display("================================");
+        $display("D S | Y0 Y1");
+        $display("-----------");
+
+        // Test 1
+        D = 1'b0;
+        S = 1'b0;
+        #10;
+        $display("%b %b | %b  %b", D, S, Y0, Y1);
+
+        // Test 2
+        D = 1'b1;
+        S = 1'b0;
+        #10;
+        $display("%b %b | %b  %b", D, S, Y0, Y1);
+
+        // Test 3
+        D = 1'b0;
+        S = 1'b1;
+        #10;
+        $display("%b %b | %b  %b", D, S, Y0, Y1);
+
+        // Test 4
+        D = 1'b1;
+        S = 1'b1;
+        #10;
+        $display("%b %b | %b  %b", D, S, Y0, Y1);
+
+        $display("================================");
+        $display("       SIMULATION COMPLETED");
+        $display("================================");
+
+        $finish;
+    end
+
+endmodule
+```

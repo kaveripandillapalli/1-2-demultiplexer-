@@ -1,0 +1,18 @@
+```verilog
+//======================================================
+// 1x2 DEMULTIPLEXER
+// 1 Data Input, 1 Select Line, 2 Outputs
+//======================================================
+
+module demux_1x2 (
+    input D,
+    input S,
+    output Y0,
+    output Y1
+);
+
+    assign Y0 = D & ~S;
+    assign Y1 = D & S;
+
+endmodule
+```
